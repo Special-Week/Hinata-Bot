@@ -1,7 +1,10 @@
 # Hinata
 
-
 See [Docs](https://v2.nonebot.dev/)
+
+一只可爱的QQ群聊bot
+
+
 
 声明一下:
 本仓库储存的是本人的私人bot
