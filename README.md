@@ -1,17 +1,11 @@
 # Hinata
 
-## How to start
-1. generate project using `nb create` .
-2. create your plugin using `nb plugin create` .
-3. writing your plugins under `hinata/plugins` folder.
-4. run your bot using `nb run` .
-## Documentation
 
 See [Docs](https://v2.nonebot.dev/)
 
 声明一下:
 本仓库储存的是本人的私人bot
-99.9%的代码来自nonebot社区,自己写的大概只有0.1%不到   (°ー°〃)
+代码大多来自nonebot社区   (°ー°〃)
 不太会玩github,请多多担待
 
 
