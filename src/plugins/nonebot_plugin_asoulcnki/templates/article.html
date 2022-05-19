@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <style>
+      @font-face {
+        font-family: "iconfont";
+        src: url("https://at.alicdn.com/t/font_2949364_zcqb63am41o.woff2?t=1637832961945")
+          format("woff2");
+      }
+      .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .icon-like:before {
+        content: "\e6bf";
+      }
+      .icon-all-like:before {
+        content: "\e6c1";
+      }
+      .icon-qoute:before {
+        content: "\e620";
+      }
+      .icon-user:before {
+        content: "\e6f4";
+      }
+      .icon-time:before {
+        content: "\e703";
+      }
+      body {
+        background-color: rgba(243, 244, 246, 1);
+      }
+      .article {
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        border-color: rgba(229, 231, 235, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        background-color: rgba(249, 250, 251, 1);
+      }
+      .article-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 8px;
+        margin-right: 8px;
+        padding: 8px;
+      }
+      .article-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 8px;
+        margin-right: 8px;
+        padding: 8px;
+      }
+      .article-text {
+        margin-left: 8px;
+        margin-right: 8px;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: rgba(229, 231, 235, 1);
+        line-height: 1.625;
+        word-break: break-all;
+        white-space: pre-wrap;
+      }
+      .article-text strong {
+        font-weight: 400;
+        background-color: rgba(243, 244, 246, 1);
+        color: rgba(239, 68, 68, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <div class="article">
+        <div class="article-header">
+          <div>
+            <span class="iconfont icon-user"></span>
+            {{ article["username"] }}
+          </div>
+        </div>
+        <div class="article-text">{{ article["text"] }}</div>
+        <div class="article-footer">
+          <div>
+            <span class="iconfont icon-all-like" />
+            {{ article["all_like"] }}
+          </div>
+          <div>
+            <span class="iconfont icon-like" />
+            {{ article["like"] }}
+          </div>
+          <div>
+            <span class="iconfont icon-qoute" />
+            {{ article["quote"] }}
+          </div>
+          <div>
+            <span class="iconfont icon-time" />
+            {{ article["time"] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

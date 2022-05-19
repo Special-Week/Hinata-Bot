@@ -1,0 +1,36 @@
+{
+    "char": {
+        "title": "西野花&支援卡卡池开放！20220411",
+        "pool_img": "https:\/\/patchwiki.biligame.com\/images\/umamusume\/f\/f8\/i08tra7l33p5ccplm18sgav4oyo216m.png",
+        "start_time": "2022-04-11T12:00:00",
+        "end_time": "2022-04-19T11:59:00",
+        "up_char": [
+            {
+                "name": "【百褶花瓣】西野花",
+                "star": 3,
+                "limited": false,
+                "zoom": 70.0
+            }
+        ]
+    },
+    "card": {
+        "title": "西野花&支援卡卡池开放！20220411",
+        "pool_img": "https:\/\/patchwiki.biligame.com\/images\/umamusume\/6\/6c\/eu4cp6ej28391d66pfu05qq78kwi3l6.png",
+        "start_time": "2022-04-11T12:00:00",
+        "end_time": "2022-04-19T11:59:00",
+        "up_char": [
+            {
+                "name": "【Outfit as No.1(No.1的衣装)】大和赤骥",
+                "star": 3,
+                "limited": false,
+                "zoom": 70.0
+            },
+            {
+                "name": "【年轻活泼的魔女，修行中。】东商变革",
+                "star": 2,
+                "limited": false,
+                "zoom": 70.0
+            }
+        ]
+    }
+}

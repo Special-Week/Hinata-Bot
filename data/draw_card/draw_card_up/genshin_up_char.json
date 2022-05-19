@@ -1,0 +1,66 @@
+{
+    "char": {
+        "title": "「杯装之诗」",
+        "pool_img": "https:\/\/patchwiki.biligame.com\/images\/ys\/5\/5b\/i3ih9ouze8og2z6qjtm748mn1qjtdra.png",
+        "start_time": "2022-03-30T11:00:00",
+        "end_time": "2022-04-19T18:00:00",
+        "up_char": [
+            {
+                "name": "温迪",
+                "star": 5,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "砂糖",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "香菱",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "云堇",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            }
+        ]
+    },
+    "arms": {
+        "title": "「苍流踏花」",
+        "pool_img": "https:\/\/patchwiki.biligame.com\/images\/ys\/6\/62\/9mx7liu6q7zmb19fx9mifpxjfvjr64s.png",
+        "start_time": "2022-03-30T11:00:00",
+        "end_time": "2022-04-19T18:00:00",
+        "up_char": [
+            {
+                "name": "神里绫人",
+                "star": 5,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "砂糖",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "香菱",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            },
+            {
+                "name": "云堇",
+                "star": 4,
+                "limited": false,
+                "zoom": 50.0
+            }
+        ]
+    }
+}
