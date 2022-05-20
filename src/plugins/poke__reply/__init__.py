@@ -44,7 +44,7 @@ async def _poke_event(bot: Bot,event: PokeNotifyEvent)-> bool:
             message=f"别戳了别戳了,这张setu给你了,让我安静一会儿,一分钟后我要撤回\n"+Message(pic[1])+Message(pic[0])
             setu_msg_id = await poke_.send(message)
             setu_msg_id = setu_msg_id['message_id']
-            await asyncio.sleep(40)
+            await asyncio.sleep(60)
             await bot.delete_msg(message_id=setu_msg_id)
             return
         await poke_.send(message=f"{random.choice(poke__reply)}")
@@ -64,7 +64,6 @@ async def get_setu() -> list:
         content = await down_pic(setu_url)
         setu_pid = res.json()["data"][0]["pid"]
         setu_author = res.json()["data"][0]["author"]
-        p = res.json()["data"][0]["p"]
         base64 = convert_b64(content)
         if type(base64) == str:
             pic = "[CQ:image,file=base64://" + base64 + "]"
