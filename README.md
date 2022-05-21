@@ -16,7 +16,7 @@
 
 
 以下为纯萌新搭建此bot教程:
-测试环境为虚拟机上新安装的windows10 21h2
+测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp
 1. 安装python3,记得勾选Add to path(我自己用的是python 3.10.4)
 2. Windows强烈建议安装好 C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package
 3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境
