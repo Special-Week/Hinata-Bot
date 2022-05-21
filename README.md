@@ -33,4 +33,4 @@ See [Docs](https://v2.nonebot.dev/)
 注:
 1. AI续写翻译插件需要在 ".env.prod" 内填写相应内容
 2. setur18开启在data下 "r18list.txt" 填写群号
-3. 颜值评分功能需要前往https://cloud.baidu.com/product/face申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
+3. 颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
