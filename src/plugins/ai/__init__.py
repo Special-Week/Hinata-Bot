@@ -23,6 +23,9 @@ except ModuleNotFoundError:
     import json
 random.seed(1)
 
+NICKNAME: str = "Hinata"
+MASTER: str = "星野日向_Official"
+
 attack_sendmessage = [
     "不理你啦，baka",
     "你再这样咱就不理你了（＞д＜）",
@@ -112,7 +115,7 @@ async def _(bot: Bot, event: MessageEvent):
         nickname = event.sender.nickname
     result = await get_chat_result(msg, event.user_id, nickname)
     if result == None:
-        await Anime.finish(Message(str(requests.get(f"http://api.qingyunke.com/api.php?key=free&appid=0&msg={msg}").json()["content"]).replace("林欣","星野日向_Official").replace("{br}","\n").replace("贾彦娟","星野日向_Official").replace("周超辉","星野日向_Official").replace("鑫总","星野日向_Official").replace("张鑫","星野日向_Official").replace("菲菲","Hinata").replace("dn","星野日向_Official").replace("1938877131","2749903559").replace("小燕","Hinata")))
+        await Anime.finish(Message(str(requests.get(f"http://api.qingyunke.com/api.php?key=free&appid=0&msg={msg}").json()["content"]).replace("林欣",MASTER).replace("{br}","\n").replace("贾彦娟",MASTER).replace("周超辉",MASTER).replace("鑫总",MASTER).replace("张鑫",MASTER).replace("菲菲",NICKNAME).replace("dn",MASTER).replace("1938877131","2749903559").replace("小燕",NICKNAME)))
     await Anime.finish(Message(result))
 
 
