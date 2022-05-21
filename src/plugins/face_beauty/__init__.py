@@ -12,8 +12,8 @@ from .utils import FaceRecognition, at_send, at_finish
 from .ParamsDependency import User
 
 
-API_KEY = "jGL092XTL8d3V8OWEnQKG3Xl"
-SECRET_KEY = "YeBXb8oYhPKDXjFmFMCqZwNVgT1VLPZm"
+API_KEY = "Drop your API Key here"
+SECRET_KEY = "Drop your Secret Key here"
 face_val = on_command("颜值评分", priority=50, aliases={"beauty"},block=True)
 on_msg_user = User(MessageEvent)
 
