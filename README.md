@@ -1,7 +1,5 @@
 # Hinata
 
-See [Docs](https://v2.nonebot.dev/)
-
 一只可爱(且色情?)的QQ群聊bot
 
 
