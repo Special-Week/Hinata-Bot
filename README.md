@@ -2,7 +2,7 @@
 
 See [Docs](https://v2.nonebot.dev/)
 
-一只可爱的QQ群聊bot
+一只可爱(且色情?)的QQ群聊bot
 
 
 
@@ -25,9 +25,8 @@ See [Docs](https://v2.nonebot.dev/)
 3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境
 4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot
 5. 进入go-cqhttp文件夹
-6. 双击 "go-cqhttp.bat" 扫码并且登陆
-7. 登陆失败就多试几次,本地端登不上就连接同一局域网登陆.
-8. 服务器端登不上就本地先登,登上了把gocqhttp复制到服务器
+6. 双击 "go-cqhttp.bat" 扫码并且登陆,账号登陆缓存为go-cqhttp文件夹下的session.token,需要换号登陆删除即可
+7. 登陆失败就多试几次,本地端登不上就连接同一局域网登陆. 服务器端登不上就本地先登,登上了把gocqhttp复制到服务器
 
 
 
@@ -41,5 +40,5 @@ See [Docs](https://v2.nonebot.dev/)
 
 注:
 1. AI续写翻译插件需要在 ".env.prod" 内填写相应内容
-2. setur18开启在data下 "r18list.txt" 填写群号
+2. setur18开启在data下 "r18list.txt" 填写群号,setu需要ban群聊在env内加setu_ban=["群聊号码"]
 3. 颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
