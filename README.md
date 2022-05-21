@@ -20,7 +20,7 @@ See [Docs](https://v2.nonebot.dev/)
 
 以下为纯萌新搭建此bot教程:
 测试环境为虚拟机上新安装的windows10 21h2
-1. 安装python3(我自己用的是python 3.10.4)
+1. 安装python3,记得勾选Add to path(我自己用的是python 3.10.4)
 2. Windows强烈建议安装好 C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package
 3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境
 4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot
