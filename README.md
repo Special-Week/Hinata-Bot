@@ -9,7 +9,6 @@ See [Docs](https://v2.nonebot.dev/)
 声明一下:
 本仓库储存的是本人的私人bot
 代码大多来自nonebot社区   (°ー°〃)
-不太会玩github,请多多担待
 
 
 要是真的有路人看到的话就按照一下方式搭建
