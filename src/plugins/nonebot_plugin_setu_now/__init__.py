@@ -25,7 +25,7 @@ NICKNAME = "Hinata"
 try:
     cdTime = nonebot.get_driver().config.setu_cd
 except:
-    cdTime = 60
+    cdTime = 0
 
 try:
     banlist = nonebot.get_driver().config.setu_ban
