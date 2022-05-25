@@ -18,7 +18,7 @@
 以下为纯萌新搭建此bot教程:
 测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp, 和一些插件需要的字体
 1. 安装python3,记得勾选Add to path(我自己用的是python 3.10.4)
-2. Windows强烈建议安装好 C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package
+2. Windows强烈建议安装好 C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package,C++ Build Tools可能不太好找,可以选择通过visual studio安装"使用C++的桌面开发"
 3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境
 4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot
 5. 进入go-cqhttp文件夹
@@ -39,3 +39,4 @@
 1. AI续写,翻译插件需要在 ".env.prod" 内填写相应内容
 2. setur18开启在data下 "r18list.txt" 填写群号,setu需要ban群聊在env内加setu_ban=["群聊号码1","群聊号码2"]
 3. 颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
+4. 如果服务器是Windows server2012为了能使用cv2库则需要在<服务器管理器-添加角色和功能向导-功能>中安装桌面体验
