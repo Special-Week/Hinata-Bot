@@ -10,6 +10,7 @@ from nonebot.adapters.onebot.v11 import (
     Message,
     MessageEvent,
     PrivateMessageEvent,
+    GroupMessageEvent,
     MessageSegment
 )
 from nonebot.exception import ActionFailed
@@ -118,8 +119,8 @@ async def _(bot: Bot, event: MessageEvent, state: T_State = State()):
                 # 判断是否是私聊,是直接发送
                 if isinstance(event, PrivateMessageEvent):
                     setu_msg_id = await setu.send(message)
-                # 不是,则为群聊,以转发的形式发送
-                else:
+                # 群聊,以转发的形式发送
+                elif isinstance(event,GroupMessageEvent):
                     messagesss = [to_json(msg, "setu-bot", bot.self_id)
                                   for msg in message]
                     setu_msg_id = await bot.call_api('send_group_forward_msg', group_id=event.group_id, messages=messagesss)
