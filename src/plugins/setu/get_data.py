@@ -45,7 +45,7 @@ async def get_setu(keyword="", r18=False) -> list:
     image.load()[0, 0] = (random.randint(0, 255),
                           random.randint(0, 255), random.randint(0, 255))
     byte_data = BytesIO()
-    image.save(byte_data, format="PNG")
+    image.save(byte_data, format="JPEG",quality=95)
     # pic的图片的base64编码
     pic = byte_data.getvalue()
 
