@@ -41,6 +41,7 @@ async def get_setu(keyword="", r18=False) -> list:
         return [error, f"图片下载失败", False]
 
     # 随机修改左上角第一颗像素的颜色
+    image = image.convert("RGB")
     image = Image.open(BytesIO(content))
     image.load()[0, 0] = (random.randint(0, 255),
                           random.randint(0, 255), random.randint(0, 255))
