@@ -37,6 +37,6 @@
 
 注:
 1. AI续写,翻译插件需要在 ".env.prod" 内填写相应内容
-2. setur18开启在data下 "r18list.txt" 填写群号,setu需要ban群聊在env内加setu_ban=["群聊号码1","群聊号码2"]
+2. setur18开关的相关指令"add_r18 xxx"  "del_r18 xxx"  "r18名单"
 3. 颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
 4. 如果服务器是Windows server2012为了能使用cv2库则需要在<服务器管理器-添加角色和功能向导-功能>中安装桌面体验
