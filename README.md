@@ -40,3 +40,4 @@
 2. setur18开关的相关指令"add_r18 xxx"  "del_r18 xxx"  "r18名单"
 3. 颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换
 4. 如果服务器是Windows server2012为了能使用cv2库则需要在<服务器管理器-添加角色和功能向导-功能>中安装桌面体验
+5. 功能相关建议稍微读一下src/plugin里面的每个插件源码中声明响应器部分
