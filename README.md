@@ -22,7 +22,7 @@
 0. 点击右上角绿色的Code按钮, Download Zip下载bot本体 (454 MB, 抽签抽卡等图片资源占大头)
 1. 安装python3, 记得勾选Add to path(我自己用的是python 3.10.4, 下载链接: https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe)
 2. Windows强烈建议安装好 Visual C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package,C++ Build Tools可能不太好找,可以选择通过visual studio安装"使用C++的桌面开发"(没有的话可能造成一些插件报错无法使用但不影响bot运行, ~~看不懂就跳过算了~~)
-3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境, 等待安装完, 安装完后会控制台自动关闭
+3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境, 等待安装完, 安装完后控制台会自动关闭
 4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot (第一次运行可能会报个定时插件的错误?再run一遍就好了)
 5. 进入go-cqhttp文件夹
 6. 双击 "go-cqhttp.bat" 扫码并且登陆(第一次登陆建议连接同一局域网, 或者手机开热点) ,账号登陆缓存为go-cqhttp文件夹下的session.token, 需要换号登陆删除即可
