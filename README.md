@@ -19,7 +19,7 @@
 测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp, 和一些插件需要的字体
 
 
-0. 点击右上角绿色的Code按钮, Download Zip下载bot本体 (454 MB)
+0. 点击右上角绿色的Code按钮, Download Zip下载bot本体 (454 MB, 抽签抽卡等图片资源占大头)
 1. 安装python3,记得勾选Add to path(我自己用的是python 3.10.4)
 2. Windows强烈建议安装好 Visual C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package,C++ Build Tools可能不太好找,可以选择通过visual studio安装"使用C++的桌面开发"(没有的话可能造成一些插件报错无法使用但不影响bot运行, ~~看不懂就跳过算了~~)
 3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境, 等待安装完, 安装完后会控制台自动关闭
