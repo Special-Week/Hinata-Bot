@@ -9,24 +9,6 @@ try:
 except ModuleNotFoundError:
     import json
 import time
-__zx_plugin_name__ = "识番"
-__plugin_usage__ = """
-usage：
-    api.trace.moe 以图识番
-    指令：
-        识番 [图片]
-""".strip()
-__plugin_des__ = "以图识番"
-__plugin_cmd__ = ["识番 [图片]"]
-__plugin_type__ = ("一些工具",)
-__plugin_version__ = 0.1
-__plugin_author__ = "HibiKier"
-__plugin_settings__ = {
-    "level": 5,
-    "default_status": True,
-    "limit_superuser": False,
-    "cmd": ["识番"],
-}
 
 
 what_anime = on_command("识番", priority=5, block=True)
