@@ -2,8 +2,9 @@ from nonebot.exception import IgnoredException
 from nonebot.log import logger
 from nonebot.message import event_preprocessor
 import random
-from nonebot import on_keyword, on_command
+from nonebot.plugin.on import on_keyword, on_command, on_message
 from nonebot.rule import to_me
+from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11 import (
     Bot,
     GroupMessageEvent,
@@ -11,31 +12,23 @@ from nonebot.adapters.onebot.v11 import (
     MessageEvent,
     MessageSegment,
 )
+from .utils import *
 from nonebot.params import CommandArg
 from pathlib import Path
 import requests
 import os
 from pathlib import Path
-try:
-    import ujson as json
-except ModuleNotFoundError:
-    import json
-cdTime = 7200
-data_dir = "./data/sb_CD"
-NICKNAME: str = "Hinata"
-MASTER: str = "星野日向_Official"
+cdTime = 21600   # 这个是有人骂bot的时候ban的CD, 单位秒,可以自己改
 
 
-attack_sendmessage = [
-    "不理你啦，baka",
-    "我给你一拳",
-    "不理你啦！バーカー",
-    "baka！不理你了！",
-    "你在说什么呀，咱就不理你了！",
-]
-# 有人骂了我家bot就不理他两小时,优先级98
-attack = on_keyword(["憨批", "傻逼", "sb", "SB", "笨蛋", "你妈", "nm",
-                    "憨憨", "狗", "儿子", "爹", "爸爸", "猪", "甘霖娘"], rule=to_me(), block=True, priority=98)
+# 响应器1, 有人骂了我家bot就不理他六小时, superuser除外(信息存在bot目录"data/sb_CDusercd.json"里面,可以删掉他提前解除)
+# 判断方法:艾特了bot句子中包含以下关键词就触发, 可能会误触? 不管了, 响应器优先级50
+attack = on_keyword(["傻逼", "sb", "SB", "你妈", "nm",
+                     "狗", "儿子", "爹", "爸爸", "猪"], rule=to_me(), block=True, priority=50)
+# 响应器2, 优先级60,条件:艾特bot就触发
+ai = on_message(rule=to_me(), priority=99)
+# 响应器3, 用来移除bot不理人的操作, 传入的参数是QQ号
+remove_CD = on_command("remove_sb", permission=SUPERUSER, block=True)
 
 
 @attack.handle()
@@ -44,6 +37,7 @@ async def handle_receive(event: MessageEvent):
     qid = event.get_user_id()
     data = read_json()
     mid = event.message_id
+    # 写入json,记录时间和id
     write_json(qid, event.time, mid, data)
     await attack.send(message=f"{random.choice(attack_sendmessage)}"+MessageSegment.image(img), at_sender=True)
 
@@ -52,6 +46,7 @@ async def handle_receive(event: MessageEvent):
 
 @event_preprocessor
 async def event_preblock_sb(event: MessageEvent, bot: Bot):
+    # 如果不是超级用户, 执行以下操作
     if not event.get_user_id() in bot.config.superusers:
         qid = event.get_user_id()
         data = read_json()
@@ -60,54 +55,20 @@ async def event_preblock_sb(event: MessageEvent, bot: Bot):
         except Exception:
             cd = cdTime + 1
         if cd > cdTime:
-            logger.info(f'当前事件正常')
             return
         blockreason = "这货骂了我家bot"
         if blockreason:
             logger.info(f'当前事件已阻断，原因：{blockreason}')
             raise IgnoredException(blockreason)
 
-# 载入词库
-anime_data = json.load(open(Path(os.path.join(os.path.dirname(
-    __file__), "resource")) / "data.json", "r", encoding="utf8"))
 
-
-# 回复一些打招呼的内容
-def hello():
-    result = random.choice(
-        (
-            "哦豁？！",
-            "你好！Ov<",
-            f"库库库，呼唤{NICKNAME}做什么呢",
-            "我在呢！",
-            "呼呼，叫俺干嘛",
-        )
-    )
-    return result
-
-# 从字典里返还消息
-
-
-async def get_chat_result(text: str, nickname: str) -> str:
-    if len(text) < 6:
-        keys = anime_data.keys()
-        for key in keys:
-            if text.find(key) != -1:
-                return random.choice(anime_data[key]).replace("你", nickname)
-
-# 优先级99
-anime = on_command("", rule=to_me(), priority=99)
-
-
-@anime.handle()
-async def _(event: MessageEvent, msg: Message = CommandArg()):
+@ai.handle()
+async def _(event: MessageEvent):
     # 获取消息文本
-    msg = msg.extract_plain_text()
-
-    print(msg)
+    msg = get_message_text(event.json())
     if "CQ:xml" in str(event.get_message()):
         return
-    # 打招呼
+    # 如果是光艾特bot(没消息返回)或者打招呼的话,就回复以下内容
     if (not msg) or msg in [
         "你好啊",
         "你好",
@@ -118,55 +79,47 @@ async def _(event: MessageEvent, msg: Message = CommandArg()):
         "你好",
         "在",
     ]:
-        await anime.finish(hello())
-    # 群聊事件
+        await ai.finish(hello())
+    # 获取用户nickname
     if isinstance(event, GroupMessageEvent):
         nickname = event.sender.card or event.sender.nickname
     else:
         nickname = event.sender.nickname
-    # 获取结果
+    # 从字典里获取结果
     result = await get_chat_result(msg,  nickname)
-    # 如果词库没有结果，则调用qingyunke
+    # 如果词库没有结果，则调用qingyunke获取智能回复
     if result == None:
-        await anime.finish(Message(str(requests.get(f"http://api.qingyunke.com/api.php?key=free&appid=0&msg={msg}").json()["content"]).replace("林欣", MASTER).replace("{br}", "\n").replace("贾彦娟", MASTER).replace("周超辉", MASTER).replace("鑫总", MASTER).replace("张鑫", MASTER).replace("菲菲", NICKNAME).replace("dn", MASTER).replace("1938877131", "2749903559").replace("小燕", NICKNAME)))
-    await anime.finish(Message(result))
+        # 这个api好像问道主人或者他叫什么名字会返回私活,这里replace掉部分
+        await ai.finish(Message(str(requests.get(f"http://api.qingyunke.com/api.php?key=free&appid=0&msg={msg}").json()["content"]).replace("林欣", MASTER).replace("{br}", "\n").replace("贾彦娟", MASTER).replace("周超辉", MASTER).replace("鑫总", MASTER).replace("张鑫", MASTER).replace("菲菲", NICKNAME).replace("dn", MASTER).replace("1938877131", "2749903559").replace("小燕", NICKNAME)))
+    await ai.finish(Message(result))
 
+
+@remove_CD.handle()
+async def _(msg: Message = CommandArg()):
+    # 获取消息文本
+    qid = msg.extract_plain_text()
+    boolean = False
+    # 我他妈也想直接try一下完事, 不知道为什么那样的话try和except全执行了, 焯
+    try:
+        remove_json(qid)
+        boolean = True
+    except:
+        pass
+    if boolean:
+        await remove_CD.finish(f"ID:{qid}CD已清除, 下次别骂bot了")
+    else:
+        await remove_CD.finish(f"{NICKNAME}记忆里没有这号人欸")
+
+    
+    
+    
+    
+    
+    
+    
 
 # help响应器
 help = on_command("!help", aliases={
                   "！help", "!帮助", "！帮助", "help", "帮助"}, block=True)
 
 # 发送help处理操作
-
-
-@help.handle()
-async def handle_receive():
-    img = Path(os.path.join(os.path.dirname(
-        __file__), "resource")) / "help.png"
-    await help.send(MessageSegment.image(img), at_sender=True)
-
-
-def read_json() -> dict:
-    try:
-        with open(data_dir + "usercd.json", "r") as f_in:
-            data = json.load(f_in)
-            f_in.close()
-            return data
-    except FileNotFoundError:
-        try:
-            import os
-
-            os.makedirs(data_dir)
-        except FileExistsError:
-            pass
-        with open(data_dir + "usercd.json", mode="w") as f_out:
-            json.dump({}, f_out)
-
-        return {}
-
-
-def write_json(qid: str, time: int, mid: int, data: dict):
-    data[qid] = [time, mid]
-    with open(data_dir + "usercd.json", "w") as f_out:
-        json.dump(data, f_out)
-        f_out.close()
