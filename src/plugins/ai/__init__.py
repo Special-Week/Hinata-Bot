@@ -123,3 +123,8 @@ help = on_command("!help", aliases={
                   "！help", "!帮助", "！帮助", "help", "帮助"}, block=True)
 
 # 发送help处理操作
+@help.handle()
+async def _():
+    img = Path(os.path.join(os.path.dirname(__file__), "resource")) / "help.png"
+    await help.finish(MessageSegment.image(img),at_sender=True)
+
