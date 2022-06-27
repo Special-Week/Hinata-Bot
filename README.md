@@ -43,6 +43,7 @@
     status          服务器状态
     what_anime      识番
     yiyandingzhen   一眼丁真 | yydz
+    random_essay    随机小作文 | 发病小作文
     abbrreply       缩写 (https://github.com/anlen123/nonebot_plugin_abbrreply)
     abstract        抽象 (https://github.com/CherryCherries/nonebot-plugin-abstract)
     caiyunai        续写 (https://github.com/MeetWq/nonebot-plugin-caiyunai)
