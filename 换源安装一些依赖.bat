@@ -1,26 +1,2 @@
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-pip install nb-cli
-pip install nonebot-adapter-onebot
-pip install pillow
-pip install cn2an
-pip install psutil
-pip install aiocache
-pip install aiohttp
-pip install jieba
-pip install aiofiles
-pip install imageio
-pip install pyzbar
-pip install fontTools
-pip install ujson
-pip install pinyin
-pip install pyenchant
-pip install opencv-python
-pip install emoji
-pip install pypinyin
-pip install dateparser
-pip install lxml
-pip install cachetools
-pip install bs4
-pip install nonebot_plugin_apscheduler
-pip install nonebot_plugin_htmlrender
-pip install wmi
+pip install nb-cli nonebot-adapter-onebot pillow cn2an psutil aiocache aiohttp jieba aiofiles imageio fontTools ujson pinyin pyenchant opencv-python emoji pypinyin dateparser lxml cachetools bs4 nonebot_plugin_apscheduler nonebot_plugin_htmlrender wmi
