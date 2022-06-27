@@ -67,5 +67,5 @@ help = on_command("!help", aliases={
 @help.handle()
 async def _():
     img = Path(os.path.join(os.path.dirname(__file__), "resource")) / "help.png"
-    await help.finish(MessageSegment.image(img),at_sender=True)
+    await help.finish(f"bot的GitHub主页 https://github.com/Special-Week/Hinata-Bot" + MessageSegment.image(img),at_sender=True)
 
