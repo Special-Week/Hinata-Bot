@@ -1,7 +1,5 @@
 # Hinata
-
 一只可爱,~~并且色情~~的QQ群聊bot
-
 
 声明一下:
 本仓库储存的是本人的私人bot
@@ -12,7 +10,6 @@
 下面的方式搭建你不会学习到任何知识,我的建议是 (https://v2.nonebot.dev/) 从零开始学习搭建以及使用社区的插件再到自己写插件
 
 代码只要你想可以任意改
-
 
 
 
@@ -29,13 +26,6 @@
     6. 双击 "go-cqhttp.bat" 扫码并且登陆(第一次登陆建议连接同一局域网, 或者手机开热点) ,账号登陆缓存为go-cqhttp文件夹下的session.token, 需要换号登陆删除即可
     7. 登陆失败就多试几次, 服务器端登不上就本地先登, 登上了把gocqhttp复制到服务器
 
-
-
-
-
-关于风控:
-新账号被风控纯属正常现象，可能会导致群聊信息无法发送,但是私聊不影响,就算换账号也无法完全避免被风控
-解决方案:在一台固定的机器上把这个qq号用go-cqhttp客户端硬挂几天
 
 
 # 插件列表:
@@ -60,7 +50,7 @@
 
     what_anime      识番
 
-    yiyandingzhen   一眼丁真 \ yydz
+    yiyandingzhen   一眼丁真 | yydz
 
     abbrreply       缩写 (https://github.com/anlen123/nonebot_plugin_abbrreply)
 
@@ -115,6 +105,9 @@
     wordle          猜单词游戏 (https://github.com/MeetWq/nonebot-plugin-wordle)
 
 
+# 关于风控:
+新账号被风控纯属正常现象，可能会导致群聊信息无法发送,但是私聊不影响,就算换账号也无法完全避免被风控
+解决方案:在一台固定的机器上把这个qq号用go-cqhttp客户端硬挂几天
 
 注:
   1. setur18开关的相关指令"add_r18 xxx"  "del_r18 xxx"  "r18名单"
