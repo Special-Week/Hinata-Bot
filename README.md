@@ -31,77 +31,41 @@
 # 插件列表:
 
     setu            ^(setu|色图|涩图|想色色|来份色色|来份色图|想涩涩|多来点|来点色图|来张setu|来张色图|来点色色|色色|涩涩)\s?([x|✖️|×|X|*]?\d+[张|个|份]?)?\s?(r18)?\s?(.*)?
-
     ai:             智障回复
-
     api_iyko:       一些api, 指令有 [来点笑话, 来点彩虹屁, 我在人间凑数的日子, 来点土味情话, 来点逆天, 来点伤感语录, 60秒读世界, 今天节日, 降雨预报, coser
-
     bt:             磁力搜索
-
     face_beauty     颜值评分, (注:颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换)
-
     get_wife        选妃
-
     pcr_chara_name  公主连结角色 [xxx是谁] 例如: 但丁是谁
-
     pixiv_id        pixiv_id xxxx | pixiv_id xxxx-x
-
     status          服务器状态
-
     what_anime      识番
-
     yiyandingzhen   一眼丁真 | yydz
-
     abbrreply       缩写 (https://github.com/anlen123/nonebot_plugin_abbrreply)
-
     abstract        抽象 (https://github.com/CherryCherries/nonebot-plugin-abstract)
-
     caiyunai        续写 (https://github.com/MeetWq/nonebot-plugin-caiyunai)
-
     code            在线运行代码 (https://github.com/yzyyz1387/nonebot_plugin_code)
-
     color           根据RGB数值生成色图 (https://github.com/monsterxcn/nonebot-plugin-color)
-
     covid19_news    疫情查询 (https://github.com/Zeta-qixi/nonebot-plugin-covid19-news)
-
     crazy_Thursday  疯狂星期四 (https://github.com/KafCoppelia/nonebot_plugin_crazy_thursday)
-
     ddcheck         查成份 (https://github.com/MeetWq/nonebot-plugin-ddcheck)
-
     emojimix        emoji 合成器 (https://github.com/MeetWq/nonebot-plugin-emojimix)
-
     fortune         抽签 (https://github.com/KafCoppelia/nonebot_plugin_fortune)
-
     gamedraw        模拟抽卡 (https://github.com/HibiKier/nonebot_plugin_gamedraw)
-
     handle          猜成语 (https://github.com/MeetWq/nonebot-plugin-handle)
-
     hikarisearch    搜图 (https://github.com/MeetWq/nonebot-plugin-hikarisearch)
-
     leetcode2       力扣查询 (https://github.com/Nranphy/nonebot_plugin_leetcode2)
-
     logo            logo制作 (https://github.com/MeetWq/nonebot-plugin-logo)
-
     memes           表情包制作 (https://github.com/MeetWq/nonebot-plugin-memes)
-
     petpet          头像表情包制作 (https://github.com/MeetWq/nonebot-plugin-petpet)
-
     randomtkk       随机唐可可 (https://github.com/MinatoAquaCrews/nonebot_plugin_randomtkk)
-
     repeater        复读机 (https://github.com/ninthseason/nonebot-plugin-repeater)
-
     simplemusic     点歌 (https://github.com/MeetWq/nonebot-plugin-simplemusic)
-
     tarot           塔罗牌 (https://github.com/KafCoppelia/nonebot_plugin_tarot)
-
     translator      翻译插件 (https://github.com/Lancercmd/nonebot_plugin_translator)
-
     weather_lite    天气查询 (https://github.com/zjkwdy/nonebot_plugin_weather_lite)
-
     withdraw        撤回消息 (https://github.com/noneplugin/nonebot-plugin-withdraw)
-
     word_bank2      词库插件 (https://github.com/kexue-z/nonebot-plugin-word-bank2)
-
     wordle          猜单词游戏 (https://github.com/MeetWq/nonebot-plugin-wordle)
 
 
