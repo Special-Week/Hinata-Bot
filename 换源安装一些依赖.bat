@@ -4,7 +4,6 @@ pip install nonebot-adapter-onebot
 pip install pillow
 pip install cn2an
 pip install psutil
-pip install qrcode
 pip install aiocache
 pip install aiohttp
 pip install jieba
