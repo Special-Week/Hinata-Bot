@@ -1,15 +1,13 @@
-﻿from nonebot import on_command
-from nonebot.typing import T_State
-from nonebot.adapters.onebot.v11 import Bot, MessageEvent
+from nonebot import on_command,on_regex
+from nonebot.adapters.onebot.v11 import Bot
 from nonebot.adapters.onebot.v11.message import MessageSegment
-from pathlib import Path
-from typing import Union, List
 import requests
+import asyncio
 
 
 xh = on_command("来点笑话", priority=5, block=True)
 @xh.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_xh = "https://api.iyk0.com/xh"
         resp = requests.get(url_xh).text
@@ -22,7 +20,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 chp = on_command("来点彩虹屁",priority=5,block=True)
 @chp.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_chp = "https://api.iyk0.com/chp"
         resp = requests.get(url_chp)
@@ -37,7 +35,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 wzrjcsdrz = on_command("我在人间", priority=5, block=True)
 @wzrjcsdrz.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_renjian = "https://api.iyk0.com/renjian"
         resp = requests.get(url_renjian).text
@@ -48,7 +46,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 twqh = on_command("来点土味情话", priority=5, block=True)
 @twqh.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_twqh = "https://api.iyk0.com/twqh"
         resp = requests.get(url_twqh).text
@@ -59,7 +57,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 tgrj=on_command("来点逆天",priority=5, block=True)
 @tgrj.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_tgrj="https://api.iyk0.com/tiangou"
         resp = requests.get(url_tgrj).text
@@ -71,7 +69,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
 sgyl=on_command("来点伤感语录",priority=5, block=True)
 @sgyl.handle()
-async def _(bot: Bot, event: MessageEvent, state: T_State):
+async def _():
     try:
         url_sgyl="https://api.iyk0.com/sg"
         resp = requests.get(url_sgyl).text
@@ -111,3 +109,17 @@ async def _():
     except:
         await rain.send("ERROR:API异常")
 
+
+
+coser = on_regex("^(cos|COS|coser|括丝)$", priority=5, block=True)
+@coser.handle()
+async def _(bot: Bot):
+    url = "https://api.iyk0.com/cos"
+    try:
+        msg_id = await coser.send(MessageSegment.image(url))
+        msg_id = msg_id['message_id']
+         # 自动撤回
+        await asyncio.sleep(100)
+        await bot.delete_msg(message_id=msg_id)
+    except:
+        await coser.send("出错了!你来给大家整点")
