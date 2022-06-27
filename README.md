@@ -6,16 +6,17 @@
 
 声明一下:
 本仓库储存的是本人的私人bot
-很多插件来自nonebot社区
+很多插件来自nonebot2社区, 已写明链接
 
 
 要是真的有路人看到的话就按照以下方式搭建
 下面的方式搭建你不会学习到任何知识,我的建议是 (https://v2.nonebot.dev/) 从零开始学习搭建以及使用社区的插件再到自己写插件
+代码只要你想可以任意改
 
 
 
 
-以下为纯萌新搭建此bot教程:
+# 以下为纯萌新搭建此bot教程:
 测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp, 和一些插件需要的字体
 
 
@@ -23,7 +24,7 @@
     1. 安装python3, 记得勾选Add to path(我自己用的是python 3.10.4, 下载链接: https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe)
     2. Windows强烈建议安装好 Visual C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package,C++ Build Tools可能不太好找,可以选择通过visual studio安装"使用C++的桌面开发"( ~~看不懂就跳过算了~~)
     3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境, 等待安装完, 安装完后控制台会自动关闭
-    4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot (第一次运行可能会报个定时插件的错误?再run一遍就好了)
+    4. 使用控制台cd到hinata文件夹目录(bot.py的那个),输入nb run或python bot.py运行bot
     5. 进入go-cqhttp文件夹
     6. 双击 "go-cqhttp.bat" 扫码并且登陆(第一次登陆建议连接同一局域网, 或者手机开热点) ,账号登陆缓存为go-cqhttp文件夹下的session.token, 需要换号登陆删除即可
     7. 登陆失败就多试几次, 服务器端登不上就本地先登, 登上了把gocqhttp复制到服务器
@@ -37,7 +38,7 @@
 解决方案:在一台固定的机器上把这个qq号用go-cqhttp客户端硬挂几天
 
 
-插件列表:
+# 插件列表:
 
     setu            ^(setu|色图|涩图|想色色|来份色色|来份色图|想涩涩|多来点|来点色图|来张setu|来张色图|来点色色|色色|涩涩)\s?([x|✖️|×|X|*]?\d+[张|个|份]?)?\s?(r18)?\s?(.*)?
 
