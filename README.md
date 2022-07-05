@@ -17,6 +17,7 @@
 
 # 以下为纯萌新搭建此bot教程:
 自备计算机基础知识
+
 不要问手机能不能用!!please use real computer
 
 测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp, 和一些插件需要的字体
