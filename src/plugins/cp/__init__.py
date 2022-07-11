@@ -392,30 +392,52 @@ cpData = [
 	"有一次，狗仔在<攻>家门口蹲拍，想拍到<攻>和他的女朋友。等到第二天下午，<攻>终于从大门出来了，而他身后跟着一个走路踉踉跄跄的<受>。",
 	"<攻>一直好奇圣诞节为什么把袜子挂在壁炉上，<受>说：“等你明天早上就知道啦！”。第二天早上，<受>只穿了袜子坐在<攻>床上\n“因为是放礼物的袜子呀。”<受>说。"
 ]
-
 import random
-from nonebot.adapters.onebot.v11 import Message
+from nonebot.adapters.onebot.v11 import Bot, Event, Message
 from nonebot.params import CommandArg
 from nonebot.plugin import on_command
+
+
 
 cp = on_command("cp", priority=5, block=True)
 
 
 def getMessage(name_list):
-    content = (
+	content = (
         random.choice(cpData)
         .replace("<攻>", name_list[0])
         .replace("<受>", name_list[1])
     )
-    return content
+	return content
 
 
 @cp.handle()
-async def _(args: Message = CommandArg()):
-	args = args.extract_plain_text()
-	if args == "":
-		return
-	args = args.split(" ")
-	if len(args) != 2:
-		await cp.finish("参数有误喵, 该功能需要两个string参数以空格隔开喵", at_sender=True)
-	await cp.finish(getMessage(args), at_sender=True)
+async def _(bot: Bot, event: Event, args: Message = CommandArg()):
+	msg = event.get_message()
+	msg_text = args.extract_plain_text()
+	name_list = [f"{event.user_id}"]
+	for msg_seg in msg:
+		if msg_seg.type == "at":
+			name_list.append(msg_seg.data["qq"])
+	num = len(name_list)
+	if num > 1:
+		if num > 2:
+			del name_list[0]
+		for i in range(len(name_list)):
+			user_name = await bot.get_group_member_info(
+                group_id=event.group_id, user_id=name_list[i]
+            )
+			user_name = (
+                user_name["card"] if user_name["card"] else user_name["nickname"]
+            )
+			name_list[i] = user_name
+	else:
+		del name_list[0]
+		msg_text = msg_text.split(" ")
+		for name in msg_text:
+			name_list.append(name)
+	try:
+		message = getMessage(name_list)
+	except:
+		message = "error: 参数不足"
+	await cp.send(message)
