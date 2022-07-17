@@ -56,7 +56,6 @@
     crazy_Thursday  疯狂星期四 (https://github.com/KafCoppelia/nonebot_plugin_crazy_thursday)
     ddcheck         查成份 (https://github.com/MeetWq/nonebot-plugin-ddcheck)
     emojimix        emoji 合成器 (https://github.com/MeetWq/nonebot-plugin-emojimix)
-    fortune         抽签 (https://github.com/KafCoppelia/nonebot_plugin_fortune)
     gamedraw        模拟抽卡 (https://github.com/HibiKier/nonebot_plugin_gamedraw)
     handle          猜成语 (https://github.com/MeetWq/nonebot-plugin-handle)
     hikarisearch    搜图 (https://github.com/MeetWq/nonebot-plugin-hikarisearch)
