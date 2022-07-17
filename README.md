@@ -21,7 +21,7 @@
 测试环境为虚拟机上新安装的windows10 21h2, Linux环境自备对应的go-cqhttp, 和一些插件需要的字体
 
     0. 点击右上角绿色的Code按钮, Download Zip下载bot本体 (454 MB, 抽签抽卡等图片资源占大头)
-    1. 安装python3, 记得勾选Add to path(我自己用的是python 3.10.4, 但我推荐3.8.10或3.9.12, 下载链接: https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)
+    1. 安装python3, 记得勾选Add to path(我自己用的是python 3.10.4, 但我推荐3.8.10或3.9.12, 下载链接: https://www.python.org/ftp/python/3.9.12/python-3.9.12-amd64.exe)
     2. Windows强烈建议安装好 Visual C++ Build Tools 以及 Microsoft Visual C++ 2013 Redistributable Package,C++ Build Tools可能不太好找,可以选择通过visual studio安装"使用C++的桌面开发"( ~~看不懂就跳过算了~~)
     3. 双击 "换源安装一些依赖.bat" 安装一些必要的环境, 等待安装完, 安装完后控制台会显示按任意键继续然后自动关闭
     4. 使用控制台(cmd或者powershell)cd到hinata文件夹目录(有bot.py的那个),输入nb run或python bot.py运行bot(不要关闭控制台)
@@ -100,3 +100,4 @@
     2022/07/08   Hinita(二号机) 限制QQ登录(可解除)        理由: 涉嫌传播色情信息或组织相关活动
     2022/07/12   Hinita(三号机) 限制QQ登录(可解除)        理由: 涉嫌传播色情信息或组织相关活动
     2022/07/14   Hinita(三号机) 限制QQ登录(可解除)        理由: 涉嫌传播色情信息或组织相关活动
+    2022/07/17   Hinita(一号机) 限制QQ登录(封号一天)        理由: 涉嫌传播色情信息或组织相关活动
