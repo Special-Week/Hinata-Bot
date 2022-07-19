@@ -41,6 +41,7 @@
     bt              磁力搜索
     face_beauty     颜值评分, (注:颜值评分功能需要前往https://cloud.baidu.com/product/face 申请免费资源并创建应用,获取应用的API Key和Secret Key并对__init__.py中开头的两个常量进行替换)
     get_wife        选妃
+    homoNumber      homonumber | 臭数字 (恶臭数字论证器)
     pcr_chara_name  公主连结角色 [xxx是谁] 例如: 但丁是谁
     pixiv_id        pixiv_id xxxx | pixiv_id xxxx-x
     status          服务器状态
