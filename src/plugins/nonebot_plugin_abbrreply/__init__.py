@@ -1,34 +1,26 @@
-import aiohttp
-
+from httpx import AsyncClient
+from nonebot import on_command
+from nonebot.params import CommandArg
 from nonebot.adapters.onebot.v11 import Message
-from nonebot.params import T_State,State
-from nonebot.plugin import on_regex
-from nonebot.adapters.onebot.v11 import Bot,Event
 
 
 async def get_sx(word):
     url = "https://lab.magiconch.com/api/nbnhhsh/guess"
 
-    headers = {
-        'origin': 'https://lab.magiconch.com',
-        'referer': 'https://lab.magiconch.com/nbnhhsh/',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
-    }
     data = {
         "text": f"{word}"
     }
-    async with aiohttp.ClientSession() as session:
-        async with session.post(url=url, headers=headers, data=data) as resp:
-            msg = await resp.json()
-            return msg if msg else []
+    async with AsyncClient() as client:
+        res = await client.post(url=url, json=data)
+        res = res.json()
+    return res if res else []
 
-
-sx = on_regex(pattern="^sx\ |^缩写\ (.*)")
+sx = on_command('sx',aliases={"缩写"}, block=True,priority=10)
 
 
 @sx.handle()
-async def _(bot: Bot,event: Event, state:T_State=State()):
-    msg = str(event.get_message())[3:]
+async def _(msg: Message = CommandArg()):
+    msg = msg.extract_plain_text()
     data = await get_sx(msg)
     result = ""
     try:
