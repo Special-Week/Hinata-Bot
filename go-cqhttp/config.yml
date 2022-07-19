@@ -30,7 +30,7 @@ message:
   # 是否强制分片发送消息
   # 分片发送将会带来更快的速度
   # 但是兼容性会有些问题
-  force-fragment: false
+  force-fragment: true
   # 是否将url分片发送
   fix-url: false
   # 下载图片等请求网络代理
