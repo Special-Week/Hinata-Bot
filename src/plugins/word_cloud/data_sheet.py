@@ -28,7 +28,7 @@ class WordData(Base):
     id = Column(Integer, primary_key=True)
     date = Column(String(20), nullable=False, index=True)
     group_id = Column(Integer, nullable=False, index=True)
-    word = Column(String, nullable=False, index=True)
+    word = Column(String, nullable=False)
     appeal = Column(Integer, nullable=False)
 
 

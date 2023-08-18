@@ -61,6 +61,7 @@ class Utils:
             "你好",
             "在",
         )
+        self.superuser = config.superusers
         self.module_path: Path = Path(__file__).parent
         self.keyword_path: Path = self.module_path / "resource/json/data.json"
         self.anime_thesaurus: Dict = json.load(
@@ -107,7 +108,7 @@ class Utils:
             last_time: int = self.bing_chat_dict[user_id]["last_time"]
             if (current_time - last_time < config.newbing_cd_time) and (
                 event.get_user_id() not in config.superusers
-            ):  # 如果当前时间减去上一次时间小于CD时间, 直接返回 # type: ignore 
+            ):  # 如果当前时间减去上一次时间小于CD时间, 直接返回 # type: ignore
                 await matcher.finish(
                     MessageSegment.reply(event.message_id)
                     + MessageSegment.text(

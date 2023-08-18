@@ -17,7 +17,7 @@ class Config(BaseSettings):
     newbing_cd_time: int = 600
     newbing_style: str = "creative"
     bing_or_openai_proxy: str = ""
-    superusers: Optional[Sequence[str]] = []
+    superusers: Sequence[str] = []
 
     @validator("openai_api_key")
     def _check_openai_api_key(cls, v):
@@ -34,7 +34,7 @@ class Config(BaseSettings):
         extra = "ignore"
 
 
-config: Config = Config.parse_obj(get_driver().config) 
+config: Config = Config.parse_obj(get_driver().config)
 
 
 if not config.smart_reply_path.exists() or not config.smart_reply_path.is_dir():
