@@ -2,13 +2,14 @@ import json
 import time
 from typing import List, Union
 
-import requests
+from httpx import AsyncClient
 from nonebot import on_command
 from nonebot.adapters.onebot.v11 import Message, MessageEvent
 from nonebot.params import Arg
 from nonebot.typing import T_State
 
 what_anime = on_command("识番", priority=5, block=True)
+
 
 def get_message_img(data: Union[str, Message]) -> List[str]:
     """
@@ -21,19 +22,17 @@ def get_message_img(data: Union[str, Message]) -> List[str]:
     if isinstance(data, str):
         data = json.loads(data)
         img_list.extend(
-            msg["data"]["url"]
-            for msg in data["message"]
-            if msg["type"] == "image"
+            msg["data"]["url"] for msg in data["message"] if msg["type"] == "image"
         )
     else:
         img_list.extend(seg.data["url"] for seg in data["image"])
     return img_list
 
+
 @what_anime.handle()
 async def _(event: MessageEvent, state: T_State):
     if img_url := get_message_img(event.json()):
         state["img_url"] = img_url[0]
-
 
 
 @what_anime.got("img_url", prompt="虚空识番？来图来图GKD")
@@ -54,13 +53,14 @@ async def get_anime(anime: str) -> str:
     s_time = time.time()
     url = f"https://api.trace.moe/search?anilistInfo&url={anime}"
     try:
-        anime_json = requests.get(url).json()
+        async with AsyncClient() as client:
+            anime_json = (await client.get(url)).json()
         if anime_json["error"]:
             return f'访问错误 error：{anime_json["error"]}'
         if anime_json == "Error reading imagenull":
             return "图像源错误，注意必须是静态图片哦"
         repass = ""
-            # 拿到动漫 中文名
+        # 拿到动漫 中文名
         for anime in anime_json["result"][:5]:
             synonyms = anime["anilist"]["synonyms"]
             for x in synonyms:
@@ -80,4 +80,3 @@ async def get_anime(anime: str) -> str:
         return f"耗时 {int(time.time() - s_time)} 秒\n{repass[:-1]}"
     except Exception:
         return "发生了奇怪的错误，那就没办法了，再试一次？"
-
