@@ -1,4 +1,4 @@
-pillow
+pillow>=9.5.0
 sqlalchemy
 spacy
 jieba
@@ -6,5 +6,3 @@ wordcloud
 numpy
 nonebot2
 nonebot-adapter-onebot
-
-# spacy download en_core_web_sm
