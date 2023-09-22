@@ -26,7 +26,7 @@ class Status:
         self.font = "微软正黑体.ttf"
 
     async def draw_img(self, bot_id: int, nickname: str) -> bytes:
-        """绘制图片, 需要传入bot的id和nickname, 返回值为图片的bytes"""
+        """绘制图片, 需要传入bot的id和nickname, 返回值为图片的bytes""" 
 
         # ----------------------------------- 加载图片 -----------------------------------
 

@@ -9,7 +9,7 @@
 
     torch                    pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116    
     (如果想要能调用显卡的cuda, 请好好安装pytorch, 官网https://pytorch.org/,  验证方法见下) 
-    realesrgan               pip install realesrgan                      (先安装好torch)
+    realesrgan               pip install realesrgan
     basicsr                  pip install basicsr
     
 验证cuda能否调用, 返回False | True
@@ -29,39 +29,31 @@ print(torch.cuda.is_available())
     nonebot.adapters.onebot    pip install nonebot-adapter-onebot
 
 
-我认为你应该有的依赖:
-
-    io    
-    time    
-    asyncio    
-    json    
-    pathlib    
-    typing
     
     
     
 导包部分:
 ```python
-import io
-import time
-import json
 import asyncio
-import imageio
-import numpy as np
+import io
+import json
+import time
 from io import BytesIO
 from pathlib import Path
+from typing import List, Union
+
+import imageio
+import numpy as np
+from basicsr.archs.rrdbnet_arch import RRDBNet
+from httpx import AsyncClient
 from loguru import logger
+from nonebot import on_command
+from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
+from nonebot.params import Arg, Depends
+from nonebot.typing import T_State
 from PIL import Image as IMG
 from PIL import ImageSequence
-from httpx import AsyncClient
-from typing import Union, List
-from nonebot import on_command
-from nonebot.typing import T_State
 from realesrgan import RealESRGANer
-from nonebot.params import Arg, Depends
-from nonebot.permission import SUPERUSER
-from basicsr.archs.rrdbnet_arch import RRDBNet
-from nonebot.adapters.onebot.v11 import Message, MessageEvent, MessageSegment
 ```
     
 ### 注:
