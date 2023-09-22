@@ -56,9 +56,7 @@ from PIL import ImageSequence
 from realesrgan import RealESRGANer
 ```
     
-### 注:
-之前在python3.10.4的时候, 安装realesrgan还是basicsr的时候报错了, 当时没仔细研究, 不清楚对3.10.x的兼容性
-可以确认的是3.9.x以及3.8.x的python安装还挺顺利的
+
 
 
 
