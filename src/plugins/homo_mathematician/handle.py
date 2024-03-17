@@ -3,10 +3,10 @@ import math
 import re
 from typing import Any, List, Union
 
-from nonebot.adapters.onebot.v11 import Message
+from nonebot.adapters import Message
 from nonebot.matcher import Matcher
 from nonebot.params import CommandArg
-from scipy.interpolate import lagrange # type: ignore
+from scipy.interpolate import lagrange  # type: ignore
 
 from .utils import Nums
 
@@ -39,7 +39,9 @@ class HomoNumber:
 
         if num in Nums:
             return Nums[num]
-        div: int = next((one for one in Nums if num >= one), 1)  # 获取刚好比 num 大的那个数
+        div: int = next(
+            (one for one in Nums if num >= one), 1
+        )  # 获取刚好比 num 大的那个数
         first_number: str = self.demolish(str(int(num / div)))
         second_number: str = self.demolish(str(int(num % div)))
         return f"({Nums[div]})*({first_number})+({second_number})"
@@ -54,7 +56,7 @@ class LagrangeInterpolation:
         items: List[str] = [item.strip() for item in msgs if item.strip()]
         if len(items) < 2 or not self.check_if_number(items):
             return
-        y: List[Union[float, int]] = self.convert_to_number(items)      # y轴坐标
+        y: List[Union[float, int]] = self.convert_to_number(items)  # y轴坐标
         x = list(range(1, len(y) + 1))  # x轴坐标
         coeffs: list = self.lagrange_fraction(x, y)
         func: str = ""
@@ -95,11 +97,11 @@ class LagrangeInterpolation:
         """将字符串列表转换为数字列表"""
         numbers: list = []
         for string in strings:
-            if string.isdigit():    # 正整数直接插入
+            if string.isdigit():  # 正整数直接插入
                 numbers.append(int(string))
             elif string.startswith("-") and string[1:].isdigit():  # 判断是否为负整数
                 numbers.append(int(string))
-            else:       # 只剩下小数的可能了
+            else:  # 只剩下小数的可能了
                 numbers.append(float(string))
         return numbers
 
